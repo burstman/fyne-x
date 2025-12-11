@@ -126,7 +126,9 @@ func (m *Map) PanEast() {
 		m.x++
 		m.offsetX -= 256
 	}
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // PanNorth will move the map to the North by 1/4 tile.
@@ -136,7 +138,9 @@ func (m *Map) PanNorth() {
 		m.y--
 		m.offsetY += 256
 	}
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // PanSouth will move the map to the South by 1/4 tile.
@@ -146,7 +150,9 @@ func (m *Map) PanSouth() {
 		m.y++
 		m.offsetY -= 256
 	}
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // PanWest will move the map to the west by 1/4 tile.
@@ -156,7 +162,9 @@ func (m *Map) PanWest() {
 		m.x--
 		m.offsetX += 256
 	}
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // Zoom sets the zoom level to a specific value, between 0 and 19.
@@ -174,7 +182,9 @@ func (m *Map) Zoom(zoom int) {
 			m.zoomOutStep()
 		}
 	}
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // ZoomIn steps the scale of this map to be one step zoomed in.
@@ -183,7 +193,9 @@ func (m *Map) ZoomIn() {
 		return
 	}
 	m.zoomInStep()
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // ZoomOut steps the scale of this map to be one step zoomed out.
@@ -192,7 +204,9 @@ func (m *Map) ZoomOut() {
 		return
 	}
 	m.zoomOutStep()
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // Dragged handles mouse drag events for panning the map.
@@ -231,7 +245,9 @@ func (m *Map) Dragged(e *fyne.DragEvent) {
 		m.dragOffsetY += 256
 	}
 
-	m.Refresh()
+	fyne.Do(func() {
+		m.Refresh()
+	})
 }
 
 // DragEnd handles the end of a drag event.
