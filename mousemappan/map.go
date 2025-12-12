@@ -211,7 +211,13 @@ func (m *Map) ZoomOut() {
 
 // Dragged handles mouse drag events for panning the map.
 func (m *Map) Dragged(e *fyne.DragEvent) {
+	// Initialize dragging state if not set (for touch devices)
 	if !m.dragging {
+		m.dragging = true
+		m.dragStartX = e.Position.X
+		m.dragStartY = e.Position.Y
+		m.dragOffsetX = m.offsetX
+		m.dragOffsetY = m.offsetY
 		return
 	}
 
