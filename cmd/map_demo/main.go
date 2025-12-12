@@ -64,7 +64,9 @@ func main() {
 	w.SetContent(m)
 
 	w.SetPadded(false)
-	w.Resize(fyne.NewSize(512, 320))
+	// Android phone typical dimensions: 360x800 dp or 1080x2400 px (scale 3)
+	// Using common Android phone portrait size
+	w.Resize(fyne.NewSize(360, 800))
 	w.ShowAndRun()
 }
 
